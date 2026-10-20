@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,11 @@
     <style>
         /* Base styles */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f8ff; /* Light blue background */
+            background-color: #f0f8ff;
+            /* Light blue background */
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -20,65 +22,75 @@
 
         /* Hand-Drawn Card Style (Applied to the main login box) */
         .hand-drawn-card {
-            border: 4px solid #1f2937; /* Dark border */
-            box-shadow: 8px 8px 0px 0px rgba(31, 41, 55, 0.4); /* Offset shadow */
+            border: 4px solid #1f2937;
+            /* Dark border */
+            box-shadow: 8px 8px 0px 0px rgba(31, 41, 55, 0.4);
+            /* Offset shadow */
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .hand-drawn-card:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 10px 10px 0px 0px rgba(31, 41, 55, 0.5); 
+            box-shadow: 10px 10px 0px 0px rgba(31, 41, 55, 0.5);
         }
 
         /* Call-to-Action Button Style (For the submit button) */
         .cta-button {
             transition: all 0.15s ease-in-out;
-            border-bottom: 4px solid rgba(0, 0, 0, 0.2); 
+            border-bottom: 4px solid rgba(0, 0, 0, 0.2);
         }
+
         .cta-button:active {
             transform: translateY(2px);
             border-bottom-width: 2px;
             box-shadow: none;
         }
-        
+
         .login-container {
-            flex-grow: 1; /* Make it take up available space */
+            flex-grow: 1;
+            /* Make it take up available space */
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 2rem 0;
         }
-        
+
         /* Custom Loading State for Button */
         .cta-button:disabled {
-            background-color: #93c5fd; /* light blue */
+            background-color: #93c5fd;
+            /* light blue */
             cursor: not-allowed;
             border-bottom: 2px solid rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
+
 <body>
 
     <header class="bg-gray-900 text-white shadow-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-3">
                 <div class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.5l-4 4m0 0l4 4m-4-4h12" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-blue-400" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6.5l-4 4m0 0l4 4m-4-4h12" />
                     </svg>
                     <span class="text-xl font-bold tracking-tight text-blue-400">doubtout</span>
                 </div>
 
                 <nav class="hidden md:flex space-x-4">
-                    <a href="index.html" class="px-3 py-2 rounded-lg font-medium hover:bg-gray-700 transition duration-150 ease-in-out">Home</a>
-                    <a href="answer_archive.html" class="px-3 py-2 rounded-lg font-medium hover:bg-gray-700 transition duration-150 ease-in-out">Archive</a>
+                    <a href="index.html"
+                        class="px-3 py-2 rounded-lg font-medium hover:bg-gray-700 transition duration-150 ease-in-out">Home</a>
+                    <a href="answer_archive.html"
+                        class="px-3 py-2 rounded-lg font-medium hover:bg-gray-700 transition duration-150 ease-in-out">Archive</a>
                 </nav>
             </div>
         </div>
     </header>
 
     <main class="login-container">
-        
+
         <!-- Student Signup Card -->
         <section class="bg-gray-800 text-white rounded-xl p-8 w-full max-w-sm hand-drawn-card">
             <div class="text-center mb-8">
@@ -89,34 +101,32 @@
                     Clear all your doubts.
                 </p>
             </div>
-            
+
             <!-- Message Container for Feedback -->
             <div id="form-feedback" class="mb-4 text-center"></div>
 
-            <form id="student-signup-form" class="space-y-6"> 
+            <form id="student-signup-form" class="space-y-6">
                 <!-- Note: The handleSignup function is attached via event listener in JS -->
-                
+
                 <!-- Hidden Role Field -->
                 <input type="hidden" name="role" value="student">
-                
+
                 <!-- Full Name -->
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-300 mb-1">
                         Full Name
                     </label>
-                    <input type="text" id="name" name="name" required 
-                            placeholder="Enter your name"
-                            class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border-2 border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-green-500 transition duration-150">
+                    <input type="text" id="name" name="name" required placeholder="Enter your name"
+                        class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border-2 border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-green-500 transition duration-150">
                 </div>
-                
+
                 <!-- Work Email -->
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-300 mb-1">
                         Student Email Address
                     </label>
-                    <input type="email" id="email" name="email" required 
-                            placeholder="Enter college mail id"
-                            class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border-2 border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-green-500 transition duration-150">
+                    <input type="email" id="email" name="email" required placeholder="Enter college mail id"
+                        class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border-2 border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-green-500 transition duration-150">
                 </div>
 
                 <!-- Password -->
@@ -124,19 +134,18 @@
                     <label for="password" class="block text-sm font-medium text-gray-300 mb-1">
                         Password
                     </label>
-                    <input type="password" id="password" name="password" required minlength="8" 
-                            placeholder="Minimum 8 characters"
-                            class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border-2 border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-green-500 transition duration-150">
+                    <input type="password" id="password" name="password" required minlength="8"
+                        placeholder="Minimum 8 characters"
+                        class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border-2 border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-green-500 transition duration-150">
                 </div>
-                
+
                 <!-- Student ID (New Field) -->
                 <div>
                     <label for="student-id" class="block text-sm font-medium text-gray-300 mb-1">
                         Student ID Number
                     </label>
-                    <input type="text" id="student-id" name="studentIdNumber" required 
-                            placeholder="Enter USN"
-                            class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border-2 border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-green-500 transition duration-150">
+                    <input type="text" id="student-id" name="studentIdNumber" required placeholder="Enter USN"
+                        class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border-2 border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-green-500 transition duration-150">
                 </div>
 
                 <!-- Major (New Field) -->
@@ -144,25 +153,26 @@
                     <label for="major" class="block text-sm font-medium text-gray-300 mb-1">
                         Major/Program
                     </label>
-                    <input type="text" id="major" name="major" required 
-                            placeholder="e.g., Computer Science"
-                            class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border-2 border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-green-500 transition duration-150">
+                    <input type="text" id="major" name="major" required placeholder="e.g., Computer Science"
+                        class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border-2 border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-green-500 transition duration-150">
                 </div>
 
-                <button type="submit" id="signup-submit-btn" class="cta-button w-full bg-blue-300 hover:bg-blue-400 text-gray-900 shadow-md py-4 rounded-lg font-extrabold text-lg tracking-wide transition duration-200">
+                <button type="submit" id="signup-submit-btn"
+                    class="cta-button w-full bg-blue-300 hover:bg-blue-400 text-gray-900 shadow-md py-4 rounded-lg font-extrabold text-lg tracking-wide transition duration-200">
                     Create Student Account
                 </button>
             </form>
 
             <div class="mt-6 text-center text-sm">
-                
+
                 <span class="text-gray-600 mx-2"></span>
-                <a href="student_login.html" class="text-gray-400 hover:text-blue-400 font-semibold transition duration-150">
-               Already Registered? Go to Login Page
+                <a href="student_login.html"
+                    class="text-gray-400 hover:text-blue-400 font-semibold transition duration-150">
+                    Already Registered? Go to Login Page
                 </a>
             </div>
         </section>
-        
+
     </main>
 
     <footer class="bg-gray-900 text-gray-400 py-4 mt-auto">
@@ -172,7 +182,8 @@
     </footer>
 
     <script>
-        const API_URL = 'https://doubtout-website.onrender.com/api';
+
+        const API_URL = 'http://localhost:3000/api';
         const form = document.getElementById('student-signup-form');
         const submitButton = document.getElementById('signup-submit-btn');
         const feedbackContainer = document.getElementById('form-feedback');
@@ -186,7 +197,7 @@
 
             const container = document.createElement('div');
             container.className = 'fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-70 transition-opacity duration-300';
-            
+
             let colorClass = 'bg-gray-300';
             let textColor = 'text-gray-900';
             if (type === 'error') {
@@ -229,14 +240,14 @@
                 password: document.getElementById('password').value,
                 fullName: document.getElementById('name').value.trim(),
                 role: 'student', // Hardcoded role for this specific page
-                
+
                 // Role-specific details MUST be nested under roleDetails object
                 roleDetails: {
                     studentIdNumber: document.getElementById('student-id').value.trim(),
                     major: document.getElementById('major').value.trim(),
                 }
             };
-            
+
             // Basic client-side validation check
             if (Object.values(data).some(val => val === '') || Object.values(data.roleDetails).some(val => val === '')) {
                 showMessage("Input Error", "Please ensure all required fields are filled out.", 'error');
@@ -249,7 +260,7 @@
             // 2. SEND DATA using the fetch API
             try {
                 const response = await fetch(`${API_URL}/signup`, {
-                    method: 'POST', 
+                    method: 'POST',
                     headers: {
                         'Content-Type': 'application/json', // Essential for JSON body parsing
                     },
@@ -278,10 +289,10 @@
                 submitButton.textContent = 'Create Student Account';
             }
         }
-        
+
         // Attach the async handleSignup function to the form submission event
         form.addEventListener('submit', handleSignup);
-        
+
         // Function to handle navigation (optional, kept for context)
         function goToLogin() {
             // Placeholder for actual redirection logic
@@ -289,4 +300,5 @@
         }
     </script>
 </body>
+
 </html>

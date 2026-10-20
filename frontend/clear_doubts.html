@@ -54,9 +54,9 @@
     <!-- Sub-Navigation / Professor Dashboard Links -->
     <nav class="bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-center flex-wrap space-x-4 sm:space-x-8 text-sm sm:text-base">
-            <a href="/professor_dashboard.html" class="text-gray-700 hover:text-green-600 font-semibold transition duration-150">Dashboard</a>
-            <a href="/pending_review.html" class="text-gray-700 hover:text-green-600 font-semibold transition duration-150">Pending Answer Review</a>
-            <a href="/my_solutions.html" class="text-gray-700 hover:text-green-600 font-semibold transition duration-150">My Solutions</a>
+            <a href="professor_dashboard.html" class="text-gray-700 hover:text-green-600 font-semibold transition duration-150">Dashboard</a>
+            <a href="pending_review.html" class="text-gray-700 hover:text-green-600 font-semibold transition duration-150">Pending Answer Review</a>
+            <a href="my_solutions.html" class="text-gray-700 hover:text-green-600 font-semibold transition duration-150">My Solutions</a>
             <a href="clear_doubts.html" class="text-green-600 border-b-2 border-green-600 font-bold transition duration-150">Clear Doubts</a>
         </div>
     </nav>
@@ -118,7 +118,7 @@ async function loadDoubts() {
 
     try {
         const res = await fetch(
-            `https://doubtout-website.onrender.com/api/professor/doubts/${professor.user_id}`
+            `http://localhost:3000/api/professor/doubts/${professor.user_id}`
         );
         const data = await res.json();
 
@@ -211,7 +211,7 @@ async function submitAnswer(doubtId) {
     }
 
     try {
-        const res = await fetch("https://doubtout-website.onrender.com/api/answers", {
+        const res = await fetch("http://localhost:3000/api/answers", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

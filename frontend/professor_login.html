@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,28 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f8ff; 
+            background-color: #f0f8ff;
         }
 
         .hand-drawn-card {
-            border: 4px solid #1f2937; 
-            box-shadow: 8px 8px 0px 0px rgba(31, 41, 55, 0.4); 
+            border: 4px solid #1f2937;
+            box-shadow: 8px 8px 0px 0px rgba(31, 41, 55, 0.4);
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .hand-drawn-card:hover {
-            transform: translate(-2px, -2px); 
-            box-shadow: 10px 10px 0px 0px rgba(31, 41, 55, 0.5); 
+            transform: translate(-2px, -2px);
+            box-shadow: 10px 10px 0px 0px rgba(31, 41, 55, 0.5);
         }
 
         .cta-button {
             transition: all 0.15s ease-in-out;
-            border-bottom: 4px solid rgba(0, 0, 0, 0.2); 
+            border-bottom: 4px solid rgba(0, 0, 0, 0.2);
         }
+
         .cta-button:active {
             transform: translateY(2px);
             border-bottom-width: 2px;
@@ -35,7 +37,7 @@
         }
 
         .login-container {
-            min-height: calc(100vh - 100px); 
+            min-height: calc(100vh - 100px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -43,29 +45,34 @@
         }
     </style>
 </head>
+
 <body>
 
     <header class="bg-gray-900 text-white shadow-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-3">
-                
+
                 <div class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.206 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.794 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.794 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.206 18 16.5 18s-3.332.477-4.5 1.253" />
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-green-400" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.206 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.794 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.794 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.206 18 16.5 18s-3.332.477-4.5 1.253" />
                     </svg>
                     <span class="text-xl font-bold tracking-tight text-green-400">doubtout</span>
                 </div>
 
                 <nav class="hidden md:flex space-x-4">
-                    <a href="index.html" class="px-3 py-2 rounded-lg font-medium hover:bg-gray-700 transition duration-150 ease-in-out">Home</a>
-                    <a href="answer_archive.html" class="px-3 py-2 rounded-lg font-medium hover:bg-gray-700 transition duration-150 ease-in-out">Archive</a>
+                    <a href="index.html"
+                        class="px-3 py-2 rounded-lg font-medium hover:bg-gray-700 transition duration-150 ease-in-out">Home</a>
+                    <a href="answer_archive.html"
+                        class="px-3 py-2 rounded-lg font-medium hover:bg-gray-700 transition duration-150 ease-in-out">Archive</a>
                 </nav>
             </div>
         </div>
     </header>
 
     <main class="login-container">
-        
+
         <section class="bg-gray-800 text-white rounded-xl p-8 w-full max-w-sm hand-drawn-card">
             <div class="text-center mb-8">
                 <h1 class="text-3xl font-extrabold mb-2 tracking-tight text-green-300">
@@ -77,45 +84,43 @@
             </div>
 
             <form id="professor-login-form" class="space-y-6">
-                
+
                 <div>
                     <label for="faculty-id" class="block text-sm font-medium text-gray-300 mb-1">
                         College Email
                     </label>
                     <!-- IMPORTANT: We use the email for API authentication -->
-                    <input type="email" id="faculty-id" name="email" required 
-                           placeholder="e.g., dr.smith@college.edu"
-                           class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border-2 border-gray-600 focus:border-green-500 focus:ring-1 focus:ring-green-500 transition duration-150"
-                           aria-label="College Email">
+                    <input type="email" id="faculty-id" name="email" required placeholder="e.g., dr.smith@college.edu"
+                        class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border-2 border-gray-600 focus:border-green-500 focus:ring-1 focus:ring-green-500 transition duration-150"
+                        aria-label="College Email">
                 </div>
 
                 <div>
                     <label for="password" class="block text-sm font-medium text-gray-300 mb-1">
                         Password
                     </label>
-                    <input type="password" id="password" name="password" required 
-                           placeholder="Enter your password"
-                           class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border-2 border-gray-600 focus:border-green-500 focus:ring-1 focus:ring-green-500 transition duration-150"
-                           aria-label="Password">
+                    <input type="password" id="password" name="password" required placeholder="Enter your password"
+                        class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white border-2 border-gray-600 focus:border-green-500 focus:ring-1 focus:ring-green-500 transition duration-150"
+                        aria-label="Password">
                 </div>
 
-                <button type="submit" id="login-submit-btn" class="cta-button w-full bg-green-500 hover:bg-green-600 text-gray-900 shadow-md py-4 rounded-lg font-extrabold text-lg tracking-wide transition duration-200">
+                <button type="submit" id="login-submit-btn"
+                    class="cta-button w-full bg-green-500 hover:bg-green-600 text-gray-900 shadow-md py-4 rounded-lg font-extrabold text-lg tracking-wide transition duration-200">
                     Login to Portal
                 </button>
             </form>
 
             <div class="mt-6 text-center text-sm">
-                 <a href="login1.html" class="text-gray-400 hover:text-green-400 font-semibold transition duration-150">
+                <a href="login1.html" class="text-gray-400 hover:text-green-400 font-semibold transition duration-150">
                     Back to Role Select
                 </a>
             </div>
         </section>
-        
+
     </main>
 
     <script>
-        const API_URL = 'https://doubtout-website.onrender.com/api'; 
-        const form = document.getElementById('professor-login-form');
+        const API_URL = 'http://localhost:3000/api'; const form = document.getElementById('professor-login-form');
         const submitButton = document.getElementById('login-submit-btn');
 
         /**
@@ -127,10 +132,10 @@
         function showMessage(title, message, type = 'info') {
             const container = document.createElement('div');
             container.className = 'fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-70 transition-opacity duration-300';
-            
+
             let color = 'bg-blue-500';
             if (type === 'error') color = 'bg-red-500';
-            if (type === 'success') color = 'bg-green-500'; 
+            if (type === 'success') color = 'bg-green-500';
 
             container.innerHTML = `
                 <div class="bg-white rounded-xl hand-drawn-card p-6 w-11/12 max-w-sm transform transition-transform duration-300 scale-100">
@@ -146,21 +151,21 @@
             `;
             document.body.appendChild(container);
         }
-        
+
         /**
          * Toggles the loading state of the submit button.
          * @param {boolean} isLoading 
          */
         function toggleLoading(isLoading) {
             submitButton.disabled = isLoading;
-            submitButton.innerHTML = isLoading 
+            submitButton.innerHTML = isLoading
                 ? '<span class="animate-spin inline-block w-5 h-5 border-4 border-white border-t-transparent rounded-full mr-2"></span> Logging In...'
                 : 'Login to Portal';
             submitButton.classList.toggle('opacity-50', isLoading);
         }
 
-        form.addEventListener('submit', async function(event) {
-            event.preventDefault(); 
+        form.addEventListener('submit', async function (event) {
+            event.preventDefault();
 
             // We treat the faculty-id input as the email for authentication purposes.
             const email = document.getElementById('faculty-id').value.trim();
@@ -171,7 +176,7 @@
                 showMessage("Input Error", "Please enter both your College Email and Password.", 'error');
                 return;
             }
-            
+
             toggleLoading(true);
 
             try {
@@ -220,4 +225,5 @@
         });
     </script>
 </body>
+
 </html>

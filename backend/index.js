@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { db, connectDb } = require("./db");
@@ -8,14 +9,17 @@ const PORT = process.env.PORT || 3000;
 
 /* ---------------- MIDDLEWARE ---------------- */
 
+
 app.use(cors({
-  origin: [
-   "https://doubtout-website-frontend.onrender.com",
-    "http://localhost:5500"     // local frontend
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
+    origin: [
+        "https://doubtout-website-frontend.onrender.com",
+        "http://localhost:5500",
+        "http://127.0.0.1:5500"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
 }));
+
 
 app.use(express.json());
 
@@ -108,28 +112,28 @@ app.post('/api/doubts', async (req, res) => {
 });
 
 app.get('/api/student/questions/:user_id', async (req, res) => {
-  const user_id = req.params.user_id;
+    const user_id = req.params.user_id;
 
-  try {
-    const questions = await db('doubts')
-      .leftJoin('answers', 'doubts.doubt_id', 'answers.doubt_id')
-      .leftJoin('users', 'answers.answered_by', 'users.user_id')
-      .select(
-        'doubts.doubt_id as question_id',
-        'doubts.question',
-        'doubts.course',
-        db.raw("TO_CHAR(doubts.created_at, 'YYYY-MM-DD') as asked_date"),
-        'answers.answer_text',
-        db.raw("TO_CHAR(answers.created_at, 'YYYY-MM-DD') as answered_date"),
-        'users.full_name as answered_by_name'
-      )
-      .where('doubts.user_id', user_id)
-      .orderBy('doubts.created_at', 'desc');
+    try {
+        const questions = await db('doubts')
+            .leftJoin('answers', 'doubts.doubt_id', 'answers.doubt_id')
+            .leftJoin('users', 'answers.answered_by', 'users.user_id')
+            .select(
+                'doubts.doubt_id as question_id',
+                'doubts.question',
+                'doubts.course',
+                db.raw("TO_CHAR(doubts.created_at, 'YYYY-MM-DD') as asked_date"),
+                'answers.answer_text',
+                db.raw("TO_CHAR(answers.created_at, 'YYYY-MM-DD') as answered_date"),
+                'users.full_name as answered_by_name'
+            )
+            .where('doubts.user_id', user_id)
+            .orderBy('doubts.created_at', 'desc');
 
-    res.json({ questions });
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to load student questions.' });
-  }
+        res.json({ questions });
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to load student questions.' });
+    }
 });
 
 
